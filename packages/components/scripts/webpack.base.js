@@ -1,5 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (isDev) => ({
@@ -14,6 +15,47 @@ module.exports = (isDev) => ({
 
   module: {
     rules: [
+      /**
+       * @description assetss | 静态资源配置
+       * @param 图片、字体
+       * @param 视频、音频
+       */
+      {
+        test: /.(png|jpg|jpeg|gif|svg)$/,
+        type: 'assets',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024
+          }
+        },
+        generator: {
+          filename: 'static/images/[name][ext]'
+        },
+      },
+      {
+        test: /.(woff2|eot|ttf|otf)$/,
+        type: 'assets',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024
+          }
+        },
+        generator: {
+          filename: 'static/fonts/[name][ext]'
+        }
+      },
+      {
+        test: /.(mp4|mp3|webm)$/,
+        type: 'assets',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024
+          }
+        },
+        generator: {
+          filename: 'static/medias/[name][ext]'
+        }
+      },
       /**
        * @description ts 解析
        * @method loader
@@ -53,23 +95,6 @@ module.exports = (isDev) => ({
           }
         ]
       },
-      // {
-      //   test: /\.(less)$/,
-      //   use: [
-      //     !isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //     'less-loader',
-      //     'postcss-loader'
-      //   ]
-      // },
-      // {
-      //   test: /\.(css)$/,
-      //   use: [
-      //     !isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-      //     "css-loader",
-      //     "postcss-loader"
-      //   ]
-      // }
     ]
   },
 
@@ -94,6 +119,9 @@ module.exports = (isDev) => ({
     }),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash:8].css',
+    }),
+    new webpack.DefinePlugin({
+      "process.env.PRIMARY": JSON.stringify(process.env.PRIMARY)
     })
   ]
 })
