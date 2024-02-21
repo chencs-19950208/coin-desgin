@@ -1,0 +1,13 @@
+{
+  "name": "@coin/libs",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node src/index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
