@@ -1,0 +1,33 @@
+{
+  "name": "@coin/examples",
+  "version": "1.0.0",
+  "description": "一些常用的列子写法收集",
+  "main": "src/index.tsx",
+  "scripts": {
+    "dev": "webpack-dev-server -c webpack.config.js"
+  },
+  "keywords": [],
+  "author": "chencs",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.10.0",
+    "html-webpack-plugin": "^5.6.0",
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0",
+    "mini-css-extract-plugin": "^2.8.0",
+    "postcss": "^8.4.34",
+    "postcss-loader": "^8.1.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "@coin/components": "workspace:^",
+    "@coin/libs": "workspace:^",
+    "@coin/shared": "workspace:^"
+  }
+}
