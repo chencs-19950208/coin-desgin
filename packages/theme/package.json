@@ -1,0 +1,12 @@
+{
+  "name": "@coin/theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
