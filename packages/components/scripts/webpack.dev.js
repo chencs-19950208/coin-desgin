@@ -3,12 +3,9 @@
  * @param getBaseCfg |使用基础配置
  * @param {Object} merge |将多个 webpack 配置文件合并成一个
  */
-
 const getBaseConfig = require('./webpack.base.js');
 const { merge } = require('webpack-merge');
 const path = require('path');
-
-console.log(getBaseConfig, 'getBaseConfig --- ');
 
 module.exports = merge(getBaseConfig(true), {
   devtool: "source-map",
